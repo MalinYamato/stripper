@@ -31,11 +31,18 @@
 # THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
 import os
 import sys
 
-folder = sys.argv[1]
+sep = '/'
+
+if sys.argv[2].upper() == "W":
+    sep = "\\"
+    print("Windows")
+else:
+    print("Linux or Mac")
+
+folder = sys.argv[1] + sep
 
 def strip_folder(base):
 
@@ -48,7 +55,7 @@ def strip_folder(base):
         os.rename(source, destination)
     
         if os.path.isdir(os.path.join(base, new_filename)):
-            strip_folder(base + new_filename + '/')
+            strip_folder(base + new_filename + sep)
     
     res = os.listdir(folder)
     print(res)
@@ -56,5 +63,3 @@ def strip_folder(base):
 strip_folder(folder)
 
 print('Done, all files stripped')
-
-
