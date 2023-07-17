@@ -8,5 +8,5 @@ then go to a command shell and do
 ### Usage on Linux
 python3 stripper.py path-to-folder
 
-### Usagr on Windows
+### Usage on Windows
 python3 stripper.py path-to-folder W
